@@ -1,0 +1,150 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: hello-world-native
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build/
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target hello-world-native
+
+
+#############################################
+# Order-only phony target for hello-world-native
+
+build cmake_object_order_depends_target_hello-world-native: phony || CMakeFiles/hello-world-native.dir
+
+build CMakeFiles/hello-world-native.dir/src/iotdb.cc.o: CXX_COMPILER__hello-world-native_Debug /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/iotdb.cc || cmake_object_order_depends_target_hello-world-native
+  DEFINES = -DNAPI_DISABLE_CPP_EXCEPTIONS -DNAPI_VERSION=8 -Dhello_world_native_EXPORTS
+  DEP_FILE = CMakeFiles/hello-world-native.dir/src/iotdb.cc.o.d
+  FLAGS = -D_GLIBCXX_USE_CXX11_ABI=0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -fPIC -std=gnu++11
+  INCLUDES = -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/include -I/usr/local/include -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/\"/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/node_modules/node-addon-api\"
+  OBJECT_DIR = CMakeFiles/hello-world-native.dir
+  OBJECT_FILE_DIR = CMakeFiles/hello-world-native.dir/src
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target hello-world-native
+
+
+#############################################
+# Link the shared library hello-world-native.node
+
+build hello-world-native.node: CXX_SHARED_LIBRARY_LINKER__hello-world-native_Debug CMakeFiles/hello-world-native.dir/src/iotdb.cc.o
+  ARCH_FLAGS = -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  INSTALLNAME_DIR = @rpath/
+  LANGUAGE_COMPILE_FLAGS = -D_GLIBCXX_USE_CXX11_ABI=0 -g
+  LINK_LIBRARIES = -Wl,-rpath,/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/lib  -liotdb_session  -lpthread
+  LINK_PATH = -L/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/lib
+  OBJECT_DIR = CMakeFiles/hello-world-native.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = hello-world-native.node
+  SONAME_FLAG = -install_name
+  TARGET_FILE = hello-world-native.node
+  TARGET_PDB = hello-world-native.node.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build && /usr/local/Cellar/cmake/3.24.0/bin/ccmake -S/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin -B/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build && /usr/local/Cellar/cmake/3.24.0/bin/cmake --regenerate-during-build -S/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin -B/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+build hello-world-native: phony hello-world-native.node
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build
+
+build all: phony hello-world-native.node
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/CMakeLists.txt /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeCInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeCXXInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeGenericSystem.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/AppleClang-C.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/Clang.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/GNU.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/FindBoost.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/FindPackageMessage.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-Clang-C.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-Clang.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Darwin-Initialize.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Darwin.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.79.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.79.0/BoostConfigVersion.cmake /usr/local/lib/cmake/boost_headers-1.79.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.79.0/boost_headers-config.cmake CMakeCache.txt CMakeFiles/3.24.0/CMakeCCompiler.cmake CMakeFiles/3.24.0/CMakeCXXCompiler.cmake CMakeFiles/3.24.0/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/CMakeLists.txt /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeCInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeCXXInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeGenericSystem.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/AppleClang-C.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/AppleClang-CXX.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/Clang.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Compiler/GNU.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/FindBoost.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/FindPackageMessage.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-Clang-C.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Apple-Clang.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Darwin-Initialize.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/Darwin.cmake /usr/local/Cellar/cmake/3.24.0/share/cmake/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.79.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.79.0/BoostConfigVersion.cmake /usr/local/lib/cmake/boost_headers-1.79.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.79.0/boost_headers-config.cmake CMakeCache.txt CMakeFiles/3.24.0/CMakeCCompiler.cmake CMakeFiles/3.24.0/CMakeCXXCompiler.cmake CMakeFiles/3.24.0/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all
