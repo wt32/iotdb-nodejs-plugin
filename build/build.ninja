@@ -46,11 +46,11 @@ cmake_ninja_workdir = /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build/
 
 build cmake_object_order_depends_target_hello-world-native: phony || CMakeFiles/hello-world-native.dir
 
-build CMakeFiles/hello-world-native.dir/src/iotdb.cc.o: CXX_COMPILER__hello-world-native_Debug /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/iotdb.cc || cmake_object_order_depends_target_hello-world-native
+build CMakeFiles/hello-world-native.dir/src/hello_world.cc.o: CXX_COMPILER__hello-world-native_Debug /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/hello_world.cc || cmake_object_order_depends_target_hello-world-native
   DEFINES = -DNAPI_DISABLE_CPP_EXCEPTIONS -DNAPI_VERSION=8 -Dhello_world_native_EXPORTS
-  DEP_FILE = CMakeFiles/hello-world-native.dir/src/iotdb.cc.o.d
+  DEP_FILE = CMakeFiles/hello-world-native.dir/src/hello_world.cc.o.d
   FLAGS = -D_GLIBCXX_USE_CXX11_ABI=0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -fPIC -std=gnu++11
-  INCLUDES = -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/include -I/usr/local/include -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/\"/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/node_modules/node-addon-api\"
+  INCLUDES = -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/include -I/usr/local/include -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/node_modules/node-addon-api
   OBJECT_DIR = CMakeFiles/hello-world-native.dir
   OBJECT_FILE_DIR = CMakeFiles/hello-world-native.dir/src
 
@@ -62,7 +62,7 @@ build CMakeFiles/hello-world-native.dir/src/iotdb.cc.o: CXX_COMPILER__hello-worl
 #############################################
 # Link the shared library hello-world-native.node
 
-build hello-world-native.node: CXX_SHARED_LIBRARY_LINKER__hello-world-native_Debug CMakeFiles/hello-world-native.dir/src/iotdb.cc.o
+build hello-world-native.node: CXX_SHARED_LIBRARY_LINKER__hello-world-native_Debug CMakeFiles/hello-world-native.dir/src/hello_world.cc.o
   ARCH_FLAGS = -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -D_GLIBCXX_USE_CXX11_ABI=0 -g

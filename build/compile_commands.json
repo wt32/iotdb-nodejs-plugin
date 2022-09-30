@@ -1,7 +1,7 @@
 [
 {
   "directory": "/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build",
-  "command": "/usr/bin/clang++ -DNAPI_DISABLE_CPP_EXCEPTIONS -DNAPI_VERSION=8 -Dhello_world_native_EXPORTS -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/include -I/usr/local/include -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/\\\"/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/node_modules/node-addon-api\\\" -D_GLIBCXX_USE_CXX11_ABI=0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -fPIC -std=gnu++11 -o CMakeFiles/hello-world-native.dir/src/iotdb.cc.o -c /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/iotdb.cc",
-  "file": "/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/iotdb.cc"
+  "command": "/usr/bin/clang++ -DNAPI_DISABLE_CPP_EXCEPTIONS -DNAPI_VERSION=8 -Dhello_world_native_EXPORTS -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/iotdb/include -I/usr/local/include -I/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/node_modules/node-addon-api -D_GLIBCXX_USE_CXX11_ABI=0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -fPIC -std=gnu++11 -o CMakeFiles/hello-world-native.dir/src/hello_world.cc.o -c /Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/hello_world.cc",
+  "file": "/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/src/hello_world.cc"
 }
 ]
