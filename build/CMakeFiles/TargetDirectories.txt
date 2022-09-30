@@ -1,3 +1,0 @@
-/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build/CMakeFiles/hello-world-native.dir
-/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build/CMakeFiles/edit_cache.dir
-/Users/wt32/Documents/GitHub/iotdb-nodejs-plugin/build/CMakeFiles/rebuild_cache.dir
