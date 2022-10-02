@@ -4,7 +4,5 @@
 
 ### test connect iotdb
 ```shell
-npm install
-
 node /test/use.js
 ```
