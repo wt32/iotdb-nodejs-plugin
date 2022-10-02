@@ -18,7 +18,7 @@ class Iotdb : public Napi::ObjectWrap<Iotdb> {
     static napi_status ToUtf8String(napi_env env,
                                   napi_value value,
                                   string* result);
-
+    static Napi::Env env;
   private:
     static Napi::FunctionReference constructor;
     double _value;
@@ -84,8 +84,6 @@ Napi::Value Iotdb::GetValue(const Napi::CallbackInfo &info) {
 }
 
 void Iotdb::SetValue(const Napi::CallbackInfo &info, const Napi::Value &value) {
-    // Napi::Env env = info.Env();
-    // ...
     Napi::Number arg = value.As<Napi::Number>();
     this->_value = arg.DoubleValue();
 }
@@ -94,21 +92,56 @@ void Iotdb::SetValue(const Napi::CallbackInfo &info, const Napi::Value &value) {
 Napi::Value Iotdb::Query(const Napi::CallbackInfo &info){
     Napi::Env env = info.Env();
     std::string sql;
+    std::vector<Field> fields;
+    Napi::Array result = Napi::Array::New(env);
+    vector<string> column;
     ToUtf8String(env, info[0].As<Napi::String>(), &sql);
     unique_ptr<SessionDataSet> dataSet = session->executeQueryStatement(sql);
     for (const string &name: dataSet->getColumnNames()) {
-        cout << "\"" << name << "\"  ";
+        column.push_back(name);
     }
-    cout << endl;
-
     dataSet->setBatchSize(1024);
     while (dataSet->hasNext()) {
-        cout << dataSet->next()->toString();
+        fields = dataSet->next()->fields;
+        Napi::Object obj = Napi::Object::New(env);
+        for (size_t i = 0; i < fields.size(); i++) {
+            TSDataType::TSDataType dataType = fields[i].dataType;
+            switch (dataType) {
+                case TSDataType::BOOLEAN: {
+                    Napi::Boolean field = Napi::Boolean::New(env,fields[i].boolV);
+                    obj.Set(Napi::String::New(env, column[result.Length()]),field);
+                    break;
+                }
+                case TSDataType::INT32: {
+                    obj.Set(column[i],Napi::Number::New(env,fields[i].intV));
+                    break;
+                }
+                case TSDataType::INT64: {
+                    obj.Set(column[i],Napi::Number::New(env,fields[i].longV));
+                    break;
+                }
+                case TSDataType::FLOAT: {
+                    obj.Set(column[i],Napi::Number::New(env,fields[i].floatV));
+                    break;
+                }
+                case TSDataType::DOUBLE: {
+                    obj.Set(column[i],Napi::Number::New(env,fields[i].doubleV));
+                    break;
+                }
+                case TSDataType::TEXT: {
+                    obj.Set(column[i],Napi::String::New(env,fields[i].stringV));
+                    break;
+                }
+                case TSDataType::NULLTYPE: {
+                    obj.Set(column[i],env.Null());
+                    break;
+                }
+            }
+        }
+        result.Set(result.Length(),obj);
     }
-    cout << endl;
-
     dataSet->closeOperationHandle();
-    return Napi::String::New(env, "Hello World");
+    return result;
 }
 
 Napi::Value Iotdb::Demo(const Napi::CallbackInfo &info){

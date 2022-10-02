@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 cmake_policy(SET CMP0042 NEW)
 set (CMAKE_CXX_STANDARD 11)
 
-project (hello-world-native)
+project (iotdb)
 set(VERSION 1.0.0.0)
 SET(CMAKE_CXX_FLAGS "-D_GLIBCXX_USE_CXX11_ABI=0")
 
@@ -39,11 +39,9 @@ LINK_DIRECTORIES(${CMAKE_SOURCE_DIR}/iotdb/lib)
 include_directories(${CMAKE_JS_INC})
 # include_directories(${JTHREAD_INCLUDE_DIRS} ${JRTPLIB_INCLUDE_DIRS})
 
-# file(GLOB HEADER_FILES 
-# "src/index.h")
 
 file(GLOB SOURCE_FILES 
-"src/hello_world.cc")
+"src/iotdb.cc")
 
 add_library(${PROJECT_NAME} SHARED ${HEADER_FILES} ${SOURCE_FILES} ${CMAKE_JS_SRC})
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")

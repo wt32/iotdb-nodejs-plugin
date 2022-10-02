@@ -1,8 +1,8 @@
 {
   'targets': [
     {
-      'target_name': 'hello-world-native',
-      'sources': [ 'src/hello_world.cc' ],
+      'target_name': 'iotdb',
+      'sources': [ 'src/iotdb.cc' ],
       'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],
       'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
       'cflags!': [ '-fno-exceptions' ],
